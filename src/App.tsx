@@ -9,18 +9,18 @@ import Header from './components/Header';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route element={<Header />}>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/resume" element={<Resume />} />
+      <Router basename={import.meta.env.DEV ? '/' : '/CNU_Blog/'}>
+        <Routes>
+          <Route element={<Header />}>
+            <Route element={<Layout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/resume" element={<Resume />} />
+            </Route>
+            <Route path="/post/:postId" element={<Post />} />
           </Route>
-          <Route path="/post/:postId" element={<Post />} />
-        </Route>
-        {/*todo (5-1) Write 추가*/}
-      </Routes>
-    </Router>
+          <Route path="/write" element={<Write />} />
+        </Routes>
+      </Router>
   );
 }
 
