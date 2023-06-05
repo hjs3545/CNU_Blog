@@ -1,5 +1,6 @@
+// eslint-disable-next-line import/named
 import axios, { AxiosResponse } from 'axios';
-import { IPostWithAd, IResponsePostList } from './types';
+import { IResponsePostList, TAG } from './types';
 
 const instance = axios.create({
   headers: {
@@ -14,7 +15,7 @@ export const getPostList = (): Promise<AxiosResponse<IResponsePostList>> => {
   return instance.get('/posts');
 };
 
-export const createPost = (title: string, contents: string, tag: string) => {
+export const createPost = (title: string, contents: string, tag: TAG) => {
   return instance.post('/posts', {
     title,
     contents,
@@ -22,14 +23,18 @@ export const createPost = (title: string, contents: string, tag: string) => {
   });
 };
 
-export const getPostById = (id: number) => {
+export const getPostById = (id: string) => {
   return instance.get(`/posts/${id}`);
 };
 
-export const updatePostById = () => {
-  return null;
+export const updatePostById = (id: string, title: string, content: string, tag: TAG) => {
+  return instance.put(`/posts/${id}`, {
+    title,
+    content,
+    tag,
+  });
 };
 
-export const deletePostById = (id: number) => {
+export const deletePostById = (id: string) => {
   return instance.delete(`/posts/${id}`);
 };
