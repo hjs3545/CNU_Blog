@@ -55,24 +55,24 @@ const Description = styled.p`
 `;
 
 const Layout = () => {
-  return (
-    <div>
-      <Profile>
+    return (
         <div>
-          <ProfilePicture src="https://t1.daumcdn.net/cfile/tistory/99107A335C1EED5005" alt="프로필 사진" />
+            <Profile>
+                <div>
+                    <ProfilePicture src="https://t1.daumcdn.net/cfile/tistory/99107A335C1EED5005" alt="프로필 사진" />
+                </div>
+                <div>
+                    <Name>황재성</Name>
+                    <Description>와우</Description>
+                </div>
+            </Profile>
+            <Nav>
+                <NavLink to="/">포스트</NavLink>
+                <NavLink to="/resume">소개</NavLink>
+            </Nav>
+            <Outlet />
         </div>
-        <div>
-          <Name>제시</Name>
-          <Description>브롤스타즈~</Description>
-        </div>
-      </Profile>
-      <Nav>
-        <NavLink to="/">포스트</NavLink>
-        <NavLink to="/resume">소개</NavLink>
-      </Nav>
-      <Outlet />
-    </div>
-  );
+    );
 };
 
 export default Layout;

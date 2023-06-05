@@ -22,14 +22,18 @@ export const createPost = (title: string, contents: string, tag: string) => {
   });
 };
 
-export const getPostById = (id: number) => {
+export const getPostById = (id: string): Promise<AxiosResponse<IPostWithAd>> => {
   return instance.get(`/posts/${id}`);
 };
 
-export const updatePostById = () => {
-  return null;
+export const updatePostById = (id: string, title: string, contents: string, tag: string) => {
+  return instance.put(`/posts/${id}`, {
+    title,
+    contents,
+    tag,
+  });
 };
 
-export const deletePostById = (id: number) => {
+export const deletePostById = (id: string) => {
   return instance.delete(`/posts/${id}`);
 };

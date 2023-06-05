@@ -8,20 +8,20 @@ import Write from './pages/Write';
 import Header from './components/Header';
 
 function App() {
-  return (
-      <Router basename={import.meta.env.DEV ? '/' : '/CNU_Blog/'}>
-        <Routes>
-          <Route element={<Header />}>
-            <Route element={<Layout />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/resume" element={<Resume />} />
-            </Route>
-            <Route path="/post/:postId" element={<Post />} />
-          </Route>
-          <Route path="/write" element={<Write />} />
-        </Routes>
-      </Router>
-  );
+    return (
+        <Router basename={import.meta.env.DEV ? '/' : '/CNU_Blog/'}>
+            <Routes>
+                <Route element={<Header />}>
+                    <Route element={<Layout />}>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/resume" element={<Resume />} />
+                    </Route>
+                    <Route path="/post/:postId" element={<Post />} />
+                </Route>
+                <Route path="/write" element={<Write />} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
